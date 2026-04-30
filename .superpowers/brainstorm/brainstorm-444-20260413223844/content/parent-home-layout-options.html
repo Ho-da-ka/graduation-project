@@ -1,0 +1,281 @@
+<style>
+  .phone {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    border-radius: 28px;
+    background: linear-gradient(180deg, #f7fbff 0%, #eef6f3 100%);
+    border: 1px solid rgba(15, 118, 110, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    padding: 14px;
+    min-height: 470px;
+  }
+  .topbar {
+    height: 18px;
+    width: 84px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.08);
+    margin: 0 auto 12px;
+  }
+  .hero {
+    border-radius: 18px;
+    padding: 14px;
+    background: linear-gradient(135deg, #0f766e 0%, #1d4ed8 100%);
+    color: #fff;
+  }
+  .hero-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .hero-sub {
+    font-size: 11px;
+    opacity: 0.92;
+  }
+  .pill-row, .mini-grid, .action-grid {
+    display: grid;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .pill-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .mini-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .action-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .pill, .mini-card, .action, .list-card, .timeline-card {
+    border-radius: 14px;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+  }
+  .pill {
+    padding: 10px 6px;
+    text-align: center;
+  }
+  .pill strong, .mini-card strong, .list-card strong, .timeline-card strong {
+    display: block;
+    font-size: 12px;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+  .pill span, .mini-card span, .list-card span, .timeline-card span {
+    font-size: 10px;
+    color: #475569;
+    line-height: 1.45;
+  }
+  .mini-card, .list-card, .timeline-card {
+    padding: 12px;
+  }
+  .action {
+    padding: 10px 4px;
+    text-align: center;
+    font-size: 10px;
+    color: #0f172a;
+  }
+  .section-label {
+    margin-top: 14px;
+    margin-bottom: 8px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    text-transform: uppercase;
+  }
+  .list-card + .list-card, .timeline-card + .timeline-card {
+    margin-top: 8px;
+  }
+  .timeline-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #0f766e;
+    margin-right: 6px;
+  }
+  .recommended {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #ecfeff;
+    color: #0f766e;
+    font-size: 11px;
+    font-weight: 700;
+  }
+</style>
+
+<h2>家长首页结构方向对比</h2>
+<p class="subtitle">目标已固定为：单个孩子视角、首页兼顾成长摘要和高频功能、首页不强调 AI。请重点看信息顺序和首页角色。</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="phone">
+        <div class="topbar"></div>
+        <div class="hero">
+          <div class="hero-title">乐乐 · 本周训练概览</div>
+          <div class="hero-sub">下次课程 周六 10:00 · 1 条未读提醒</div>
+        </div>
+        <div class="pill-row">
+          <div class="pill"><strong>本周出勤</strong><span>2 / 3 节</span></div>
+          <div class="pill"><strong>最新体测</strong><span>耐力稳定</span></div>
+          <div class="pill"><strong>未读消息</strong><span>1 条</span></div>
+        </div>
+        <div class="section-label">快捷入口</div>
+        <div class="action-grid">
+          <div class="action">我的孩子</div>
+          <div class="action">课程预约</div>
+          <div class="action">签到记录</div>
+          <div class="action">成长总览</div>
+          <div class="action">体测记录</div>
+          <div class="action">预约记录</div>
+          <div class="action">站内消息</div>
+          <div class="action">更多</div>
+        </div>
+        <div class="section-label">近期动态</div>
+        <div class="list-card">
+          <strong>最近一次训练反馈</strong>
+          <span>核心稳定性表现更好，建议本周继续做下肢协调练习。</span>
+        </div>
+        <div class="list-card">
+          <strong>待处理事项</strong>
+          <span>查看阶段评估，确认周末课程预约。</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. 平衡卡片流</h3>
+      <p>顶部先给孩子近况，再给高频入口，底部补近期动态和待办。</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>最符合“混合首页”定位</li>
+            <li>办事和看成长都不被牺牲</li>
+            <li>后续接入 AI 摘要也很自然</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>代价</h4>
+          <ul>
+            <li>信息密度中等，需要卡片层级清楚</li>
+            <li>首页字段需要比现在稍多一些</li>
+          </ul>
+        </div>
+      </div>
+      <div class="recommended">推荐方向</div>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="phone">
+        <div class="topbar"></div>
+        <div class="hero" style="background: linear-gradient(135deg, #1d4ed8 0%, #0f172a 100%);">
+          <div class="hero-title">乐乐家长服务台</div>
+          <div class="hero-sub">课程、预约、签到、消息一页直达</div>
+        </div>
+        <div class="section-label">高频操作</div>
+        <div class="action-grid" style="margin-top: 6px;">
+          <div class="action">约课</div>
+          <div class="action">签到</div>
+          <div class="action">消息</div>
+          <div class="action">体测</div>
+          <div class="action">孩子</div>
+          <div class="action">预约</div>
+          <div class="action">成长</div>
+          <div class="action">联系</div>
+        </div>
+        <div class="mini-grid">
+          <div class="mini-card"><strong>最近课程</strong><span>周六 10:00 爆发力课</span></div>
+          <div class="mini-card"><strong>签到状态</strong><span>上次已完成签到</span></div>
+        </div>
+        <div class="section-label">摘要信息</div>
+        <div class="list-card">
+          <strong>成长摘要</strong>
+          <span>本周训练正常推进，暂无明显风险提醒。</span>
+        </div>
+        <div class="list-card">
+          <strong>消息提醒</strong>
+          <span>1 条未读消息，建议查看课程变更通知。</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. 服务导航台</h3>
+      <p>首页更偏工具页，先保证操作效率，再补少量成长摘要。</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>功能入口最清楚</li>
+            <li>对已有页面复用最直接</li>
+            <li>开发改造成本更低</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>代价</h4>
+          <ul>
+            <li>产品价值感偏弱</li>
+            <li>答辩时不容易体现“成长服务”主题</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="phone">
+        <div class="topbar"></div>
+        <div class="hero" style="background: linear-gradient(135deg, #7c3aed 0%, #1e293b 100%);">
+          <div class="hero-title">乐乐 · 成长故事页</div>
+          <div class="hero-sub">最近训练反馈、阶段变化、家长建议</div>
+        </div>
+        <div class="section-label">成长时间线</div>
+        <div class="timeline-card">
+          <strong><span class="timeline-dot"></span>最新反馈</strong>
+          <span>课堂专注度提升，建议居家继续跳绳 10 分钟。</span>
+        </div>
+        <div class="timeline-card">
+          <strong><span class="timeline-dot"></span>阶段评估</strong>
+          <span>柔韧性改善明显，下阶段继续加强爆发力。</span>
+        </div>
+        <div class="timeline-card">
+          <strong><span class="timeline-dot"></span>待办提醒</strong>
+          <span>查看本周课程安排，确认孩子签到信息。</span>
+        </div>
+        <div class="section-label">常用入口</div>
+        <div class="mini-grid">
+          <div class="mini-card"><strong>成长总览</strong><span>进入详情</span></div>
+          <div class="mini-card"><strong>课程预约</strong><span>快速操作</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. 成长故事流</h3>
+      <p>首页更像一个家长阅读页，先展示训练脉络，再提供少量操作入口。</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>成长感和服务感最强</li>
+            <li>很适合后续接阶段报告</li>
+            <li>视觉记忆点更明显</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>代价</h4>
+          <ul>
+            <li>操作效率弱于另外两版</li>
+            <li>首页与成长总览页会更相似</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
